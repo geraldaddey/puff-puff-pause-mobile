@@ -6,27 +6,27 @@ Make sure you configured environment as described in above tutorial.
 ##  Folders structure explanation
 
  - src
-	 - api
+	 - api <br />
 	  `API configuration`
-	 - assets 	
+	 - assets 	<br />
 	  `Assets used in project`
-	 - components
+	 - components<br />
 	  `Reusable components`
-	 - context
+	 - context<br />
 	  `Context config (e.g. app theme, app locale)`
-	 - hooks
+	 - hooks<br />
 	  `Reusable custom hooks`
-	 - i18n
+	 - i18n<br />
 	  `Translations configuration`
-	 - navigations
+	 - navigations<br />
 	  `Navigation configuration`
-	 - redux
+	 - redux<br />
 	  `State management configuration`
-	 - screens
+	 - screens<br />
 	  `Separated app screens`
-	 - styles
+	 - styles<br />
 	  `Shared styles configuration related to theme (e.g. colors)`
-	 - tests
+	 - tests<br />
 	  `Test configuration`
-	 - utils
+	 - utils<br />
 	  `Reusable functions, helpers (e.g. date format function)`
