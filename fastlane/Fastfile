@@ -15,6 +15,16 @@ platform :android do
         git_commit(path: "./android", message: "Bump build version for Android")
         push_to_git_remote
     end   
+
+    desc "Android bundle release version"
+    lane :android_release_bundle do 
+        increment_version_code(gradle_file_path: 'android/app/build.gradle')
+        gradle(task: 'clean', project_dir: './android/')
+        gradle(task: 'bundle' ,build_type: 'Release', project_dir: './android')
+        #  These lines can be removed after Google Play Account is connected
+        # git_commit(path: "./android", message: "Build release bundle for Android")
+        # upload_to_play_store
+    end   
   
 end
 
