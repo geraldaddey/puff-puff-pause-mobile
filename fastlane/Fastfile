@@ -6,6 +6,23 @@ before_all do
     git_pull
 end
 
+
+platform :ios do
+    private_lane :ios_staging_build do
+        increment_build_number(xcodeproj: './ios/ReactNativeBoilerplate.xcodeproj')
+        gym(scheme: 'ReactNativeBoilerplate', workspace: './ios/ReactNativeBoilerplate.xcworkspace')
+    end
+
+    desc "iOS deploy to TestFlight"
+    lane :ios_staging do
+        ios_staging_build
+        upload_to_testflight(skip_waiting_for_build_processing: true, app_identifier: 'app identifier here' )
+        clean_build_artifacts
+        commit_version_bump(message: 'Bump build version for iOS', xcodeproj: './ios/ReactNativeBoilerplate.xcodeproj', force: true)
+        push_to_git_remote
+    end   
+end
+
 platform :android do
     desc "Android assemble release version"
     lane :android_staging do 

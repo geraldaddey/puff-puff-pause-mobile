@@ -15,12 +15,26 @@ Install _fastlane_ using
 or alternatively using `brew install fastlane`
 
 # Available Actions
+## iOS
+### ios ios_staging
+```
+fastlane ios ios_staging
+```
+iOS deploy to TestFlight
+
+----
+
 ## Android
 ### android android_staging
 ```
 fastlane android android_staging
 ```
 Android assemble release version
+### android android_release_bundle
+```
+fastlane android android_release_bundle
+```
+Android bundle release version
 
 ----
 
