@@ -1,0 +1,20 @@
+before_all do 
+    # This will be uncomment on final version, for now, dev purposes is commented
+    # By ensure git branch you can set specific branch for build your app
+    # ensure_git_branch
+    # ensure_git_status_clean
+    # git_pull
+end
+
+platform :android do
+    desc "Android assemble release version"
+    lane :android_staging do 
+        increment_version_code(gradle_file_path: 'android/app/build.gradle')
+        gradle(task: 'clean', project_dir: './android/')
+        gradle(task: 'assemble' ,build_type: 'Release', project_dir: './android')
+        git_commit(path: "./android", message: "Bump build version for Android")
+        push_to_git_remote
+    end   
+  
+end
+

@@ -3,6 +3,20 @@
 This project was bootstrapped with [React Native CLI](https://reactnative.dev/docs/environment-setup).
 Make sure you configured environment as described in above tutorial.
 
+## Setup
+
+If after environment configuration you will get error 
+```
+SDK location not found.
+``` 
+ - Go to ```android/ ```
+ - Create a file ```local.properties ``` and add this line :
+
+```bash
+sdk.dir = /Users/USERNAME/Library/Android/sdk
+```
+Where ```USERNAME``` is your macOS username
+
 ## Installation
 
 Use the package manager yarn to install the app.
