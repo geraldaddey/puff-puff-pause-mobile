@@ -2,8 +2,8 @@ before_all do
     # This will be uncomment on final version, for now, dev purposes is commented
     # By ensure git branch you can set specific branch for build your app
     # ensure_git_branch
-    # ensure_git_status_clean
-    # git_pull
+    ensure_git_status_clean
+    git_pull
 end
 
 platform :android do
