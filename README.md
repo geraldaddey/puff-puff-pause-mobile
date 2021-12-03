@@ -12,7 +12,7 @@ yarn
 ```
 #### Run metro:
 ```bash
-npx react-native start
+yarn start
 ```
 
 #### For iOS:
