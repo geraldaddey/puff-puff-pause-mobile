@@ -1,5 +1,4 @@
 {
-  "ignorePatterns": ["src/serviceWorker.ts"],
   "extends": [
     "plugin:prettier/recommended",
     "@react-native-community",
