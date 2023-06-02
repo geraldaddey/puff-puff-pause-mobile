@@ -10,6 +10,8 @@ export const Home = () => {
   return (
     <View style={styles.wrapper}>
       <Button title="Go to Profile" onPress={() => navigation.navigate('Profile')} />
+      <Button title="Go to Profile (Drawer Navigation)" onPress={() => navigation.navigate('ProfileDrawer')} />
+      <Button title="Go to Profile (Shared Navigation)" onPress={() => navigation.navigate('SharedNavProfile')} />
     </View>
   );
 };
