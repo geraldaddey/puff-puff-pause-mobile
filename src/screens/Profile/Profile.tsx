@@ -6,7 +6,6 @@ import { TabParamList } from '../../navigations/Navigator.types';
 
 import { AboutMe } from './aboutMe/AboutMe';
 import { Details } from './details/Details';
-import styles from './Profile.styles';
 import { Settings } from './settings/Settings';
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -27,7 +26,7 @@ export const Profile = () => {
         component={AboutMe}
         options={{
           title: 'About me',
-          tabBarIcon: () => <Image source={require('./../../assets/images/aboutMe.png')} style={styles.icon} />,
+          tabBarIcon: () => <Image source={require('./../../assets/images/aboutMe.png')} className="w-6 h-6" />,
         }}
       />
       <Tab.Screen
@@ -35,7 +34,7 @@ export const Profile = () => {
         component={Details}
         options={{
           title: 'Details',
-          tabBarIcon: () => <Image source={require('./../../assets/images/card.png')} style={styles.icon} />,
+          tabBarIcon: () => <Image source={require('./../../assets/images/card.png')} className="w-6 h-6" />,
         }}
       />
       <Tab.Screen
@@ -43,7 +42,7 @@ export const Profile = () => {
         component={Settings}
         options={{
           title: 'Settings',
-          tabBarIcon: () => <Image source={require('./../../assets/images/settings.png')} style={styles.icon} />,
+          tabBarIcon: () => <Image source={require('./../../assets/images/settings.png')} className="w-6 h-6" />,
         }}
       />
     </Tab.Navigator>
