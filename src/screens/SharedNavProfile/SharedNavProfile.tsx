@@ -2,8 +2,8 @@ import { createDrawerNavigator } from '@react-navigation/drawer';
 import React from 'react';
 
 import { TabParamList } from '../../navigations/Navigator.types';
+import { AboutMe } from '../Profile/aboutMe/AboutMe';
 
-import { AboutMe } from './aboutMe/AboutMe';
 import { Details } from './details/Details';
 
 const Drawer = createDrawerNavigator<TabParamList>();
