@@ -1,7 +1,7 @@
 {
   "extends": [
     "plugin:prettier/recommended",
-    "@react-native-community",
+    "@react-native",
     "plugin:@typescript-eslint/recommended",
     "prettier"
   ],
