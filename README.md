@@ -25,6 +25,7 @@ Where `USERNAME` is your macOS username
 Use the package manager yarn to install the app.
 
 ```bash
+cp .env.dist .env
 yarn
 ```
 
@@ -90,3 +91,15 @@ You can preview each of them in following folders:
 - drawer + bottom tabs - `src > SharedNavProfile > SharedNavDrawer.tsx`
 
 You can read more about the react navigation at: https://reactnavigation.org/docs/getting-started
+
+## Deployment
+
+### AppCenter
+
+- Environment variables need to have `RN_` prefix. For example if your variable is `BACKEND_URL`(in `.env` file) it should be added as `RN_BACKEND_URL` to the App Center.
+
+## Troubleshooting
+
+### Changes in .env file are not reflected in ios application even after rebuild
+
+To see the latest changes you may need to run `cd ios && pod install` and then rebuild the project.
