@@ -9,6 +9,13 @@ module.exports = {
       setupTimeout: 120000,
     },
   },
+  artifacts: {
+    plugins: {
+      instruments: { enabled: false },
+      log: { enabled: true },
+      uiHierarchy: 'enabled',
+    },
+  },
   apps: {
     'ios.debug': {
       type: 'ios.app',

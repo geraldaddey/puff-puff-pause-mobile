@@ -6,18 +6,19 @@ describe('Example', () => {
   });
 
   beforeEach(async () => {
-    await device.reloadReactNative();
+    if (device.getPlatform() === 'ios') {
+      await device.reloadReactNative();
+    }
   });
 
   it('should show home screen with navigation buttons', async () => {
-    const profielBtn = element(by.id('profile'));
+    const profielBtn = element(by.id('goToProfileButton'));
     await expect(profielBtn).toBeVisible();
   });
 
   it('should show profile screen after button tap', async () => {
-    // await expect(element(by.id('profile'))).toBeVisible();
-
-    await element(by.id('profile')).tap();
+    const profielBtn = element(by.id('goToProfileButton'));
+    await profielBtn.longPress(); // longPress instead of tap becuase of bug: https://github.com/wix/Detox/issues/3762
     await expect(element(by.text('Elliot Thomson'))).toBeVisible();
   });
 });

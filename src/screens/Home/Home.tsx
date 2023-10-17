@@ -6,8 +6,8 @@ export const Home = () => {
   const navigation = useNavigation();
 
   return (
-    <View className="flex-1 items-center justify-center ">
-      <Button testID="profile" title="Go to Profile" onPress={() => navigation.navigate('Profile')} />
+    <View className="flex-1 items-center justify-center">
+      <Button testID="goToProfileButton" title="Go to Profile" onPress={() => navigation.navigate('Profile')} />
       <Button title="Go to Profile (Drawer Navigation)" onPress={() => navigation.navigate('ProfileDrawer')} />
       <Button title="Go to Profile (Shared Navigation)" onPress={() => navigation.navigate('SharedNavProfile')} />
     </View>
