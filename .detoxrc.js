@@ -19,15 +19,15 @@ module.exports = {
   apps: {
     'ios.debug': {
       type: 'ios.app',
-      binaryPath: 'ios/build/Build/Products/Debug-iphonesimulator/ReactNativeBoilerplate.app',
+      binaryPath: 'ios/build/Build/Products/Debug-iphonesimulator/ReactNativeStarter.app',
       build:
-        'xcodebuild -workspace ios/ReactNativeBoilerplate.xcworkspace -scheme ReactNativeBoilerplate -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build',
+        'xcodebuild -workspace ios/ReactNativeStarter.xcworkspace -scheme ReactNativeStarter -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build',
     },
     'ios.release': {
       type: 'ios.app',
-      binaryPath: 'ios/build/Build/Products/Release-iphonesimulator/ReactNativeBoilerplate.app',
+      binaryPath: 'ios/build/Build/Products/Release-iphonesimulator/ReactNativeStarter.app',
       build:
-        'xcodebuild -workspace ios/ReactNativeBoilerplate.xcworkspace -scheme ReactNativeBoilerplate -configuration Release -sdk iphonesimulator -derivedDataPath ios/build',
+        'xcodebuild -workspace ios/ReactNativeStarter.xcworkspace -scheme ReactNativeStarter -configuration Release -sdk iphonesimulator -derivedDataPath ios/build',
     },
     'android.debug': {
       type: 'android.apk',

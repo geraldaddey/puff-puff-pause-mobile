@@ -9,8 +9,8 @@ end
 
 platform :ios do
     private_lane :ios_staging_build do
-        increment_build_number(xcodeproj: './ios/ReactNativeBoilerplate.xcodeproj')
-        gym(scheme: 'ReactNativeBoilerplate', workspace: './ios/ReactNativeBoilerplate.xcworkspace')
+        increment_build_number(xcodeproj: './ios/ReactNativeStarter.xcodeproj')
+        gym(scheme: 'ReactNativeStarter', workspace: './ios/ReactNativeStarter.xcworkspace')
     end
 
     desc "iOS deploy to TestFlight"
@@ -18,7 +18,7 @@ platform :ios do
         ios_staging_build
         upload_to_testflight(skip_waiting_for_build_processing: true, app_identifier: 'app identifier here' )
         clean_build_artifacts
-        commit_version_bump(message: 'Bump build version for iOS', xcodeproj: './ios/ReactNativeBoilerplate.xcodeproj', force: true)
+        commit_version_bump(message: 'Bump build version for iOS', xcodeproj: './ios/ReactNativeStarter.xcodeproj', force: true)
         push_to_git_remote
     end   
 end
