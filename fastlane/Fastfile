@@ -2,7 +2,7 @@ before_all do
     # This will be uncomment on final version, for now, dev purposes is commented
     # By ensure git branch you can set specific branch for build your app
     # ensure_git_branch
-    ensure_git_status_clean
+    # ensure_git_status_clean
     git_pull
 end
 
@@ -10,42 +10,48 @@ end
 platform :ios do
     private_lane :ios_staging_build do
         increment_build_number(xcodeproj: './ios/ReactNativeStarter.xcodeproj')
-        gym(scheme: 'ReactNativeStarter', workspace: './ios/ReactNativeStarter.xcworkspace')
+        gym(scheme: 'ReactNativeStarter', workspace: './ios/ReactNativeStarter.xcworkspace', export_options: {
+            provisioningProfiles: {
+            # "io.tshdev.reactnativestarter" => "match Development io.tshdev.reactnativestarter"
+            "io.tshdev.reactnativestarter" => "match AppStore io.tshdev.reactnativestarter"
+            }
+            })
     end
 
     desc "iOS deploy to TestFlight"
     lane :ios_staging do
         ios_staging_build
-        upload_to_testflight(skip_waiting_for_build_processing: true, app_identifier: 'app identifier here' )
+        upload_to_testflight(skip_waiting_for_build_processing: true, app_identifier: 'io.tshdev.reactnativestarter' )
         clean_build_artifacts
         commit_version_bump(message: 'Bump build version for iOS', xcodeproj: './ios/ReactNativeStarter.xcodeproj', force: true)
         push_to_git_remote
     end   
 end
 
-platform :android do
-    desc "Android assemble release version"
-    lane :android_staging do 
-        increment_version_code(gradle_file_path: 'android/app/build.gradle')
-        gradle(task: 'clean', project_dir: './android/')
-        gradle(task: 'assemble' ,build_type: 'Release', project_dir: './android')
-        firebase_app_distribution(
-            app: "1:125899101394:android:dfd1b6e0d19f77608fc90b",
-            groups: "qa-test"
-          )
-        git_commit(path: "./android", message: "Bump build version for Android")
-        push_to_git_remote
-    end   
 
-    desc "Android bundle release version"
-    lane :android_release_bundle do 
-        increment_version_code(gradle_file_path: 'android/app/build.gradle')
-        gradle(task: 'clean', project_dir: './android/')
-        gradle(task: 'bundle' ,build_type: 'Release', project_dir: './android')
-        #  These lines can be removed after Google Play Account is connected
-        # git_commit(path: "./android", message: "Build release bundle for Android")
-        # upload_to_play_store
-    end   
+# platform :android do
+#     desc "Android assemble release version"
+#     lane :android_staging do 
+#         increment_version_code(gradle_file_path: 'android/app/build.gradle')
+#         gradle(task: 'clean', project_dir: './android/')
+#         gradle(task: 'assemble' ,build_type: 'Release', project_dir: './android')
+#         firebase_app_distribution(
+#             app: "1:125899101394:android:dfd1b6e0d19f77608fc90b",
+#             groups: "qa-test"
+#           )
+#         git_commit(path: "./android", message: "Bump build version for Android")
+#         push_to_git_remote
+#     end   
+
+#     desc "Android bundle release version"
+#     lane :android_release_bundle do 
+#         increment_version_code(gradle_file_path: 'android/app/build.gradle')
+#         gradle(task: 'clean', project_dir: './android/')
+#         gradle(task: 'bundle' ,build_type: 'Release', project_dir: './android')
+#         #  These lines can be removed after Google Play Account is connected
+#         # git_commit(path: "./android", message: "Build release bundle for Android")
+#         # upload_to_play_store
+#     end   
   
-end
+# end
 
