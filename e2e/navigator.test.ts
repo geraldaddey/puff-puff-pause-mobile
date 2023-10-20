@@ -6,9 +6,7 @@ describe('Example', () => {
   });
 
   beforeEach(async () => {
-    if (device.getPlatform() === 'ios') {
-      await device.reloadReactNative();
-    }
+    // await device.reloadReactNative(); // couse some trouble on android tests
   });
 
   it('should show home screen with navigation buttons', async () => {
