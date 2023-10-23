@@ -29,29 +29,29 @@ platform :ios do
 end
 
 
-# platform :android do
-#     desc "Android assemble release version"
-#     lane :android_staging do 
-#         increment_version_code(gradle_file_path: 'android/app/build.gradle')
-#         gradle(task: 'clean', project_dir: './android/')
-#         gradle(task: 'assemble' ,build_type: 'Release', project_dir: './android')
-#         firebase_app_distribution(
-#             app: "1:125899101394:android:dfd1b6e0d19f77608fc90b",
-#             groups: "qa-test"
-#           )
-#         git_commit(path: "./android", message: "Bump build version for Android")
-#         push_to_git_remote
-#     end   
+platform :android do
+    desc "Android assemble release version"
+    lane :android_staging do 
+        increment_version_code(gradle_file_path: 'android/app/build.gradle')
+        gradle(task: 'clean', project_dir: './android/')
+        gradle(task: 'assemble' ,build_type: 'Release', project_dir: './android')
+        firebase_app_distribution(
+            app: "1:559995000649:android:828eba86aa6757c6beec98",
+            groups: "qa-test"
+          )
+        git_commit(path: "./android", message: "Bump build version for Android")
+        push_to_git_remote
+    end   
 
-#     desc "Android bundle release version"
-#     lane :android_release_bundle do 
-#         increment_version_code(gradle_file_path: 'android/app/build.gradle')
-#         gradle(task: 'clean', project_dir: './android/')
-#         gradle(task: 'bundle' ,build_type: 'Release', project_dir: './android')
-#         #  These lines can be removed after Google Play Account is connected
-#         # git_commit(path: "./android", message: "Build release bundle for Android")
-#         # upload_to_play_store
-#     end   
+    desc "Android bundle release version"
+    lane :android_release_bundle do 
+        increment_version_code(gradle_file_path: 'android/app/build.gradle')
+        gradle(task: 'clean', project_dir: './android/')
+        gradle(task: 'bundle' ,build_type: 'Release', project_dir: './android')
+        #  These lines can be removed after Google Play Account is connected
+        # git_commit(path: "./android", message: "Build release bundle for Android")
+        # upload_to_play_store
+    end   
   
-# end
+end
 
