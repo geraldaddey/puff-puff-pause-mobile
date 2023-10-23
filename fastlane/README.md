@@ -25,6 +25,27 @@ iOS deploy to TestFlight
 
 ----
 
+
+## Android
+
+### android android_staging
+
+```sh
+[bundle exec] fastlane android android_staging
+```
+
+Android assemble release version
+
+### android android_release_bundle
+
+```sh
+[bundle exec] fastlane android android_release_bundle
+```
+
+Android bundle release version
+
+----
+
 This README.md is auto-generated and will be re-generated every time [_fastlane_](https://fastlane.tools) is run.
 
 More information about _fastlane_ can be found on [fastlane.tools](https://fastlane.tools).
