@@ -1,4 +1,4 @@
-import { ApiClientContextController } from 'context/apiClient/apiClientContextController/ApiClientContextController';
+import { ApiClientContextController } from '../context/apiClient/apiClientContextController/ApiClientContextController';
 
 import { AppProvidersProps } from './AppProviders.types';
 

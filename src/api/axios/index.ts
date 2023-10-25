@@ -4,7 +4,7 @@ import Config from 'react-native-config';
 import {
   responseFailureInterceptor,
   responseSuccessInterceptor,
-} from 'context/apiClient/apiClientContextController/interceptors/responseInterceptors';
+} from '../../context/apiClient/apiClientContextController/interceptors/responseInterceptors';
 
 export const BASE_URL = Config.BASE_API_URL;
 
