@@ -3,7 +3,7 @@ import {
   GetUsersResponse,
   LoginMutationArguments,
   LoginMutationResponse,
-} from 'api/actions/auth/authActions.types';
+} from 'api/actions/auth/auth.types';
 
 import { rest } from './rest';
 
