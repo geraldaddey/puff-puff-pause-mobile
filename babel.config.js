@@ -5,6 +5,7 @@ module.exports = {
       'module-resolver',
       {
         root: ['./src'],
+        extensions: ['.ios.ts', '.ios.tsx', '.android.ts', '.android.tsx', '.ts', '.tsx', '.js', '.jsx', '.json'],
       },
     ],
     'nativewind/babel',
