@@ -6,6 +6,7 @@ import { Home } from '../screens/Home/Home';
 import { Profile } from '../screens/Profile/Profile';
 import { ProfileDrawer } from '../screens/ProfileDrawer/ProfileDrawer';
 import { SharedNavProfile } from '../screens/SharedNavProfile/SharedNavProfile';
+import { Users } from '../screens/Users/Users';
 
 import { RootStackParamList } from './Navigator.types';
 
@@ -17,6 +18,7 @@ export const Navigator = () => {
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Profile" component={Profile} />
+        <Stack.Screen name="Users" component={Users} />
         <Stack.Screen name="ProfileDrawer" component={ProfileDrawer} />
         <Stack.Screen name="SharedNavProfile" component={SharedNavProfile} />
       </Stack.Navigator>

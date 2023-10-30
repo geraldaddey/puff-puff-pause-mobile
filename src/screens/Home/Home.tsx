@@ -17,6 +17,7 @@ export const Home = () => {
           <Text className="text-xl text-center mb-3">
             Hello<Text className="font-bold"> {user?.firstName}</Text> !
           </Text>
+          <Button label="Show users" onPress={() => navigation.navigate('Users')} testID="goToUsersButton" />
           <Button label="Go to Profile" onPress={() => navigation.navigate('Profile')} testID="goToProfileButton" />
           <Button label="Go to Profile (Drawer Navigation)" onPress={() => navigation.navigate('ProfileDrawer')} />
           <Button label="Go to Profile (Shared Navigation)" onPress={() => navigation.navigate('SharedNavProfile')} />
