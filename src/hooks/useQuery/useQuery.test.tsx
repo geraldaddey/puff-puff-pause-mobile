@@ -17,10 +17,6 @@ const mockApiResponse = (data: unknown, method: 'get' | 'post') => {
 };
 
 describe('useQuery', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
-
   afterAll(() => {
     // restore the spy created with spyOn
     jest.restoreAllMocks();

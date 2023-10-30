@@ -6,10 +6,6 @@ import { render } from 'tests';
 import { Navigator } from './Navigator';
 
 describe('Navigator', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
-
   it('Correctly renders login screen', async () => {
     const component = <Navigator />;
     render(component);
