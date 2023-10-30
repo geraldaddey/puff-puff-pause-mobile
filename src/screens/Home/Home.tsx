@@ -34,6 +34,7 @@ export const Home = () => {
       ) : (
         <Button
           label="Login"
+          testID="loginButton"
           onPress={() => login({ password: '123', username: 'test' })}
           disabled={isAuthenticating}
         />
