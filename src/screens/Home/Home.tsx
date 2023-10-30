@@ -3,9 +3,13 @@ import React from 'react';
 import { Text, View } from 'react-native';
 
 import Button from 'components/Button/Button';
+import { Translation } from 'components/Translation/Translation';
+import { AppLocale } from 'context/locale/AppLocale.enum';
 import { useAuth } from 'hooks/useAuth/useAuth';
+import { useLocale } from 'hooks/useLocale/useLocale';
 
 export const Home = () => {
+  const { locale, setLocale } = useLocale();
   const navigation = useNavigation();
   const { user, login, logout, isAuthenticated, isAuthenticating } = useAuth();
 
@@ -14,13 +18,17 @@ export const Home = () => {
       {isAuthenticating && <Text>Loading...</Text>}
       {isAuthenticated ? (
         <View className="g-2">
-          <Text className="text-xl text-center mb-3">
-            Hello<Text className="font-bold"> {user?.firstName}</Text> !
-          </Text>
+          <Translation id="home.helloWorld" values={{ name: user?.firstName }} className="text-xl text-center mb-3" />
           <Button label="Show users" onPress={() => navigation.navigate('Users')} testID="goToUsersButton" />
           <Button label="Go to Profile" onPress={() => navigation.navigate('Profile')} testID="goToProfileButton" />
           <Button label="Go to Profile (Drawer Navigation)" onPress={() => navigation.navigate('ProfileDrawer')} />
           <Button label="Go to Profile (Shared Navigation)" onPress={() => navigation.navigate('SharedNavProfile')} />
+          <Button
+            label="Switch language"
+            onPress={() => setLocale(locale === AppLocale.pl ? AppLocale.en : AppLocale.pl)}
+            buttonStyle="bg-transparent"
+            labelStyle="text-black"
+          />
           <Button label="Logout" onPress={() => logout()} buttonStyle="bg-transparent" labelStyle="text-black" />
         </View>
       ) : (
