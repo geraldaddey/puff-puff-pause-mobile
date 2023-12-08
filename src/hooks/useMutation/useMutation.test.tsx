@@ -10,10 +10,6 @@ const mockMutationResponse = {
 };
 
 describe('useMutation', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
-
   test('returns the data fetched from api on mutation', async () => {
     const response = { status: 200, data: mockMutationResponse };
     jest.spyOn(axiosClient, 'post').mockResolvedValue(response);
