@@ -3,6 +3,7 @@ export type RootStackParamList = {
   Profile: undefined;
   ProfileDrawer: undefined;
   SharedNavProfile: undefined;
+  Users: undefined;
 };
 
 export type TabParamList = {
