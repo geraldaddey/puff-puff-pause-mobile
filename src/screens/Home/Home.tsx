@@ -23,12 +23,22 @@ export const Home = () => {
           <Button label="Go to Profile" onPress={() => navigation.navigate('Profile')} testID="goToProfileButton" />
           <Button label="Go to Profile (Drawer Navigation)" onPress={() => navigation.navigate('ProfileDrawer')} />
           <Button label="Go to Profile (Shared Navigation)" onPress={() => navigation.navigate('SharedNavProfile')} />
-          <Button
-            label="Switch language"
-            onPress={() => setLocale(locale === AppLocale.pl ? AppLocale.en : AppLocale.pl)}
-            buttonStyle="bg-transparent"
-            labelStyle="text-black"
-          />
+          {locale === AppLocale.pl && (
+            <Button
+              label="Switch language to EN"
+              onPress={() => setLocale(AppLocale.en)}
+              buttonStyle="bg-transparent"
+              labelStyle="text-black"
+            />
+          )}
+          {locale === AppLocale.en && (
+            <Button
+              label="Switch language to PL"
+              onPress={() => setLocale(AppLocale.pl)}
+              buttonStyle="bg-transparent"
+              labelStyle="text-black"
+            />
+          )}
           <Button label="Logout" onPress={() => logout()} buttonStyle="bg-transparent" labelStyle="text-black" />
         </View>
       ) : (
