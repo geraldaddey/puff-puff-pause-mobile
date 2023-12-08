@@ -3,7 +3,12 @@ const path = require('path');
 module.exports = {
   preset: 'react-native',
   setupFilesAfterEnv: ['./jest.setup.js'],
-  testMatch: ['<rootDir>/__tests__/**/*.test.ts', '<rootDir>/__tests__/*.test.tsx'],
+  testMatch: [
+    '<rootDir>/__tests__/**/*.test.ts',
+    '<rootDir>/__tests__/*.test.tsx',
+    '<rootDir>/src/**/*.test.ts',
+    '<rootDir>/src/**/*.test.tsx',
+  ],
   // This is needed to mock the react-native-gesture-handler
   setupFiles: ['./node_modules/react-native-gesture-handler/jestSetup.js'],
   clearMocks: true,
