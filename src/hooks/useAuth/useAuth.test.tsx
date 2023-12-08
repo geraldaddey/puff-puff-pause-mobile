@@ -6,10 +6,6 @@ import { authStorage } from 'storage/storage';
 import { useAuth } from './useAuth';
 
 describe('useAuth', () => {
-  beforeAll(() => {
-    jest.useFakeTimers();
-  });
-
   afterEach(() => {
     act(() => {
       authStorage.clearAll();
