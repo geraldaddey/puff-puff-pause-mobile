@@ -94,9 +94,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.reactnativeboilerplate"
+    namespace "io.tshdev.reactnativestarter"
     defaultConfig {
-        applicationId "com.reactnativeboilerplate"
+        applicationId "io.tshdev.reactnativestarter"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1

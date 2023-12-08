@@ -1,4 +1,4 @@
-package com.reactnativeboilerplate;
+package io.tshdev.reactnativestarter;
 
 import com.wix.detox.Detox;
 import com.wix.detox.config.DetoxConfig;
