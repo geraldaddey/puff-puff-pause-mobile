@@ -31,7 +31,7 @@
     "qs": "^6.11.2",
     "react": "18.2.0",
     "react-intl": "^6.5.1",
-    "react-native": "0.73.0",
+    "react-native": "0.73.4",
     "react-native-config": "^1.5.1",
     "react-native-drawer-layout": "^3.2.2",
     "react-native-gesture-handler": "^2.14.0",
