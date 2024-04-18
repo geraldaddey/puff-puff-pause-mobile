@@ -96,7 +96,15 @@ You can read more about the react navigation at: https://reactnavigation.org/doc
 
 ### AppCenter
 
-- Environment variables need to have `RN_` prefix. For example if your variable is `BACKEND_URL`(in `.env` file) it should be added as `RN_BACKEND_URL` to the App Center.
+- Environment variables need to have `RN_` prefix. For example if your variable is `BACKEND_URL`(in `.env` file) it
+  should be added as `RN_BACKEND_URL` to the App Center.
+
+## Storybook
+
+To open storybook:
+
+1. Start metro bundler using `yarn storybook`
+1. Run ios/android build using `yarn ios` or `yarn android`
 
 ## Troubleshooting
 
