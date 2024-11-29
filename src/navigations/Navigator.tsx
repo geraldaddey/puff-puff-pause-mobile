@@ -7,6 +7,8 @@ import { Profile } from '../screens/Profile/Profile';
 import { ProfileDrawer } from '../screens/ProfileDrawer/ProfileDrawer';
 import { SharedNavProfile } from '../screens/SharedNavProfile/SharedNavProfile';
 import { Users } from '../screens/Users/Users';
+import { SplashScreen } from '../screens/Splash/SplashScreen';
+import { OnboardingScreen } from '../screens/Onboarding/OnboardingScreen';
 
 import { RootStackParamList } from './Navigator.types';
 
@@ -15,7 +17,12 @@ export const Navigator = () => {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
+      <Stack.Navigator 
+        initialRouteName="Splash"
+        screenOptions={{ headerShown: false }}
+      >
+        <Stack.Screen name="Splash" component={SplashScreen} />
+        <Stack.Screen name="Onboarding" component={OnboardingScreen} />
         <Stack.Screen name="Home" component={Home} />
         <Stack.Screen name="Profile" component={Profile} />
         <Stack.Screen name="Users" component={Users} />
