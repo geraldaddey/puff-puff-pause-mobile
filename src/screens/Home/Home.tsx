@@ -1,59 +1,156 @@
-import { useNavigation } from '@react-navigation/native';
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { RouteProp } from '@react-navigation/native';
+import { RootStackParamList } from '../../navigations/Navigator.types';
 
-import Button from 'components/Button/Button';
-import { Translation } from 'components/Translation/Translation';
-import { AppLocale } from 'context/locale/AppLocale.enum';
-import { useAuth } from 'hooks/useAuth/useAuth';
-import { useLocale } from 'hooks/useLocale/useLocale';
+type HomeScreenProps = {
+  route: RouteProp<RootStackParamList, 'Home'>;
+};
 
-export const Home = () => {
-  const { locale, setLocale } = useLocale();
-  const navigation = useNavigation();
-  const { user, login, logout, isAuthenticated, isAuthenticating } = useAuth();
+const DashboardCard = ({ title, value, icon }: { title: string; value: string; icon: string }) => (
+  <View style={styles.card}>
+    <Text style={styles.cardIcon}>{icon}</Text>
+    <Text style={styles.cardTitle}>{title}</Text>
+    <Text style={styles.cardValue}>{value}</Text>
+  </View>
+);
 
+export const Home: React.FC<HomeScreenProps> = ({ route }) => {
   return (
-    <View className="flex-1 items-center justify-center">
-      {isAuthenticating && <Text>Loading...</Text>}
-      {isAuthenticated ? (
-        <View className="gap-2">
-          <Translation id="home.helloWorld" values={{ name: user?.firstName }} className="text-xl text-center mb-3" />
-          <Button label="Show users" onPress={() => navigation.navigate('Users')} testID="goToUsersButton" />
-          <Button label="Go to Profile" onPress={() => navigation.navigate('Profile')} testID="goToProfileButton" />
-          <Button label="Go to Profile (Drawer Navigation)" onPress={() => navigation.navigate('ProfileDrawer')} />
-          <Button label="Go to Profile (Shared Navigation)" onPress={() => navigation.navigate('SharedNavProfile')} />
-          {locale === AppLocale.pl && (
-            <Button
-              label="Switch language to EN"
-              onPress={() => setLocale(AppLocale.en)}
-              buttonClassName="bg-transparent"
-              labelClassName="text-black"
-            />
-          )}
-          {locale === AppLocale.en && (
-            <Button
-              label="Switch language to PL"
-              onPress={() => setLocale(AppLocale.pl)}
-              buttonClassName="bg-transparent"
-              labelClassName="text-black"
-            />
-          )}
-          <Button
-            label="Logout"
-            onPress={() => logout()}
-            buttonClassName="bg-transparent"
-            labelClassName="text-black"
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
+        {/* Header Section */}
+        <View style={styles.header}>
+          <Text style={styles.greeting}>Welcome to Mindful Sessions</Text>
+          <Text style={styles.subtitle}>Track your cannabis consumption journey</Text>
+        </View>
+
+        {/* Stats Grid */}
+        <View style={styles.statsGrid}>
+          <DashboardCard 
+            title="Today's Sessions" 
+            value="0" 
+            icon="🌿"
+          />
+          <DashboardCard 
+            title="Mindful Minutes" 
+            value="0" 
+            icon="⏱️"
           />
         </View>
-      ) : (
-        <Button
-          label="Login"
-          testID="loginButton"
-          onPress={() => login({ password: '123', username: 'test' })}
-          disabled={isAuthenticating}
-        />
-      )}
-    </View>
+
+        {/* Quick Actions */}
+        <View style={styles.actionsContainer}>
+          <Text style={styles.sectionTitle}>Quick Actions</Text>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text style={styles.actionButtonText}>Start New Session</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.actionButton}>
+            <Text style={styles.actionButtonText}>View History</Text>
+          </TouchableOpacity>
+        </View>
+
+        {/* Mindfulness Tip */}
+        <View style={styles.tipContainer}>
+          <Text style={styles.tipTitle}>Today's Mindfulness Tip</Text>
+          <Text style={styles.tipText}>
+            "Before your session, take three deep breaths and set an intention for your experience."
+          </Text>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#F5F5F5',
+  },
+  header: {
+    padding: 20,
+    backgroundColor: '#2E7D32',
+  },
+  greeting: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+  },
+  subtitle: {
+    fontSize: 16,
+    color: '#FFFFFF',
+    opacity: 0.8,
+  },
+  statsGrid: {
+    flexDirection: 'row',
+    padding: 15,
+    justifyContent: 'space-between',
+  },
+  card: {
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    padding: 15,
+    width: Dimensions.get('window').width * 0.44,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.1,
+    shadowRadius: 4,
+    elevation: 3,
+  },
+  cardIcon: {
+    fontSize: 24,
+    marginBottom: 8,
+  },
+  cardTitle: {
+    fontSize: 14,
+    color: '#666',
+    marginBottom: 4,
+  },
+  cardValue: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: '#2E7D32',
+  },
+  actionsContainer: {
+    padding: 20,
+  },
+  sectionTitle: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 15,
+    color: '#333',
+  },
+  actionButton: {
+    backgroundColor: '#2E7D32',
+    padding: 15,
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  actionButtonText: {
+    color: '#FFFFFF',
+    textAlign: 'center',
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  tipContainer: {
+    margin: 20,
+    padding: 15,
+    backgroundColor: '#FFFFFF',
+    borderRadius: 12,
+    borderLeftWidth: 4,
+    borderLeftColor: '#2E7D32',
+  },
+  tipTitle: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 8,
+    color: '#333',
+  },
+  tipText: {
+    fontSize: 14,
+    color: '#666',
+    lineHeight: 20,
+  },
+});
