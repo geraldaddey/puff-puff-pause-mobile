@@ -1,20 +1,12 @@
 export type RootStackParamList = {
-  Home: undefined;
-  Profile: { userId: string };
-  Users: undefined;
-  ProfileDrawer: undefined;
-  SharedNavProfile: undefined;
   Splash: undefined;
   Onboarding: undefined;
-  MainApp: { surveyResponses?: {
-    experienceLevel: string;
-    preferredLearningStyle: string;
-    mainGoal: string;
-  }};
+  MainTabs: undefined;
 };
 
 export type TabParamList = {
-  AboutMe: undefined;
-  Details: undefined;
-  Settings: undefined;
+  Dashboard: undefined;
+  History: undefined;
+  Stats: undefined;
+  Profile: undefined;
 };

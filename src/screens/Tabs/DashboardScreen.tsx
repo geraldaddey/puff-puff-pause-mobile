@@ -1,12 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { RouteProp } from '@react-navigation/native';
-import { RootStackParamList } from '../../navigations/Navigator.types';
-
-type HomeScreenProps = {
-  route: RouteProp<RootStackParamList, 'Home'>;
-};
 
 const DashboardCard = ({ title, value, icon }: { title: string; value: string; icon: string }) => (
   <View style={styles.card}>
@@ -16,7 +10,7 @@ const DashboardCard = ({ title, value, icon }: { title: string; value: string; i
   </View>
 );
 
-export const Home: React.FC<HomeScreenProps> = ({ route }) => {
+export const DashboardScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView>
@@ -153,4 +147,4 @@ const styles = StyleSheet.create({
     color: '#666',
     lineHeight: 20,
   },
-});
+}); 

@@ -9,6 +9,7 @@ import { SharedNavProfile } from '../screens/SharedNavProfile/SharedNavProfile';
 import { Users } from '../screens/Users/Users';
 import { SplashScreen } from '../screens/Splash/SplashScreen';
 import { OnboardingScreen } from '../screens/Onboarding/OnboardingScreen';
+import { TabNavigator } from './TabNavigator';
 
 import { RootStackParamList } from './Navigator.types';
 
@@ -23,11 +24,7 @@ export const Navigator = () => {
       >
         <Stack.Screen name="Splash" component={SplashScreen} />
         <Stack.Screen name="Onboarding" component={OnboardingScreen} />
-        <Stack.Screen name="Home" component={Home} />
-        <Stack.Screen name="Profile" component={Profile} />
-        <Stack.Screen name="Users" component={Users} />
-        <Stack.Screen name="ProfileDrawer" component={ProfileDrawer} />
-        <Stack.Screen name="SharedNavProfile" component={SharedNavProfile} />
+        <Stack.Screen name="MainTabs" component={TabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

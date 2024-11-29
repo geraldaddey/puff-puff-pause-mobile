@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Dimensions } from 'react-native';
 import Onboarding from 'react-native-onboarding-swiper';
 import { StackNavigationProp } from '@react-navigation/stack';
-import { RootStackParamList } from '../navigation/types';
+import { RootStackParamList } from '../../navigations/Navigator.types';
 
 type OnboardingScreenProps = {
   navigation: StackNavigationProp<RootStackParamList, 'Onboarding'>;
@@ -10,7 +10,7 @@ type OnboardingScreenProps = {
 
 export const OnboardingScreen: React.FC<OnboardingScreenProps> = ({ navigation }) => {
   const handleComplete = () => {
-    navigation.replace('Home');
+    navigation.replace('MainTabs');
   };
 
   return (
