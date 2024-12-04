@@ -8,5 +8,5 @@ export type TabParamList = {
   Dashboard: undefined;
   History: undefined;
   Stats: undefined;
-  Profile: undefined;
+  Settings: undefined;
 };

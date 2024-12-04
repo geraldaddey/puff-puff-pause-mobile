@@ -2,11 +2,6 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import React from 'react';
 
-import { Home } from '../screens/Home/Home';
-import { Profile } from '../screens/Profile/Profile';
-import { ProfileDrawer } from '../screens/ProfileDrawer/ProfileDrawer';
-import { SharedNavProfile } from '../screens/SharedNavProfile/SharedNavProfile';
-import { Users } from '../screens/Users/Users';
 import { SplashScreen } from '../screens/Splash/SplashScreen';
 import { OnboardingScreen } from '../screens/Onboarding/OnboardingScreen';
 import { TabNavigator } from './TabNavigator';
