@@ -16,8 +16,8 @@ export const DashboardScreen = () => {
       <ScrollView>
         {/* Header Section */}
         <View style={styles.header}>
-          <Text style={styles.greeting}>Welcome to Mindful Sessions</Text>
-          <Text style={styles.subtitle}>Track your cannabis consumption journey</Text>
+          <Text style={styles.greeting}>Welcome to Puff Puff Pause</Text>
+          <Text style={styles.subtitle}>Your mindful cannabis companion</Text>
         </View>
 
         {/* Stats Grid */}
@@ -28,8 +28,8 @@ export const DashboardScreen = () => {
             icon="🌿"
           />
           <DashboardCard 
-            title="Mindful Minutes" 
-            value="0" 
+            title="Pause Time" 
+            value="0 min" 
             icon="⏱️"
           />
         </View>
@@ -38,18 +38,18 @@ export const DashboardScreen = () => {
         <View style={styles.actionsContainer}>
           <Text style={styles.sectionTitle}>Quick Actions</Text>
           <TouchableOpacity style={styles.actionButton}>
-            <Text style={styles.actionButtonText}>Start New Session</Text>
+            <Text style={styles.actionButtonText}>Start Mindful Session</Text>
           </TouchableOpacity>
           <TouchableOpacity style={styles.actionButton}>
-            <Text style={styles.actionButtonText}>View History</Text>
+            <Text style={styles.actionButtonText}>View Session History</Text>
           </TouchableOpacity>
         </View>
 
-        {/* Mindfulness Tip */}
+        {/* Daily Tip */}
         <View style={styles.tipContainer}>
-          <Text style={styles.tipTitle}>Today's Mindfulness Tip</Text>
+          <Text style={styles.tipTitle}>Today's Pause Tip</Text>
           <Text style={styles.tipText}>
-            "Before your session, take three deep breaths and set an intention for your experience."
+            "Take a mindful pause before your session. Set an intention, find a comfortable space, and remember to breathe deeply. This practice enhances your awareness and overall experience."
           </Text>
         </View>
       </ScrollView>
