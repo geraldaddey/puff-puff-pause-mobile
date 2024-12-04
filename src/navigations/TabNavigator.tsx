@@ -4,7 +4,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { DashboardScreen } from '../screens/Tabs/DashboardScreen';
 import { HistoryScreen } from '../screens/Tabs/HistoryScreen';
 import { StatsScreen } from '../screens/Tabs/StatsScreen';
-import { ProfileScreen } from '../screens/Tabs/ProfileScreen';
+import { SettingsScreen } from '../screens/Tabs/SettingsScreen';
 import { TabParamList } from './Navigator.types';
 
 const Tab = createBottomTabNavigator<TabParamList>();
@@ -47,10 +47,10 @@ export const TabNavigator = () => {
         }}
       />
       <Tab.Screen
-        name="Profile"
-        component={ProfileScreen}
+        name="Settings"
+        component={SettingsScreen}
         options={{
-          tabBarIcon: ({ color }) => <Text style={{ color }}>👤</Text>,
+          tabBarIcon: ({ color }) => <Text style={{ color }}>⚙️</Text>,
         }}
       />
     </Tab.Navigator>
