@@ -2,6 +2,7 @@ export type RootStackParamList = {
   Splash: undefined;
   Onboarding: undefined;
   MainTabs: undefined;
+  Profile: undefined;
 };
 
 export type TabParamList = {

@@ -1,11 +1,33 @@
 import React from 'react';
 import { View, Text, StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import { RootStackParamList } from '../../navigations/Navigator.types';
+
+type SettingsScreenNavigationProp = StackNavigationProp<RootStackParamList>;
 
 export const SettingsScreen = () => {
+  const navigation = useNavigation<SettingsScreenNavigationProp>();
+
   const handlePress = (setting: string) => {
-    // Placeholder for handling setting selection
-    console.log(`Selected setting: ${setting}`);
+    switch (setting) {
+      case 'Profile Settings':
+        break;
+      case 'Notification Settings':
+        // TODO: Add navigation to Notifications
+        break;
+      case 'Privacy Settings':
+        // TODO: Add navigation to Privacy
+        break;
+      case 'App Theme':
+        // TODO: Add navigation to Theme
+        break;
+      case 'About':
+        // TODO: Add navigation to About
+        break;
+      default:
+    }
   };
 
   return (
